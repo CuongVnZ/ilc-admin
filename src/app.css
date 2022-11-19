@@ -1,0 +1,10 @@
+.container{
+    display: flex ;
+    top: 10px;
+    background: #f2edf3;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
