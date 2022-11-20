@@ -20,6 +20,7 @@ const Login = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            margin: "auto"
         }}
         >
         <input

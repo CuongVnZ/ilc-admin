@@ -16,24 +16,20 @@ function App() {
 
   const user = useSelector((state) => state.user.currentUser);
   const admin = user?.isAdmin
+  
   return (
     <Router>
-        { admin && <Topbar/>}
+        { admin && <Topbar/> }
         <div className="container">
-        { admin && <Sidebar/>}
+        { admin && <Sidebar/> }
           <Routes>
-            { !admin && <Route path="/login" element={<Login/>}/> }
-            { admin &&
-              (<>
-              <Route exact path="/" element={<Home/>}/>
+              <Route exact path="/" element={ admin ? <Home/> : <Login/>}/>
               <Route path="/users" element={<UserList/>}/>
               <Route path="/user/:userId" element={<User/>}/>
               <Route path="/newUser" element={<NewUser/>}/>
               <Route path="/products" element={<ProductList/>}/>
               <Route path="/product/:productId" element={<Product/>}/>
               <Route path="/newProduct" element={<NewProduct/>}/>
-              </>)
-            }
           </Routes>
         </div>
     </Router>

@@ -85,7 +85,7 @@ export default function Product() {
             <div className="productTitleContainer">
                 <h1 className="productTitle">Product</h1>
                 <a href={"http://localhost:3001/product/" + product.id}>
-                <button className="productAddButton">View</button>
+                <button className="productViewButton">View</button>
                 </a>
             </div>
             <div className="productTop">
