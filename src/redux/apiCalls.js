@@ -28,6 +28,20 @@ import {
   addMemberStart,
   addMemberSuccess,
 } from "./memberRedux";
+import {
+  getOrderFailure,
+  getOrderStart,
+  getOrderSuccess,
+  deleteOrderFailure,
+  deleteOrderStart,
+  deleteOrderSuccess,
+  updateOrderFailure,
+  updateOrderStart,
+  updateOrderSuccess,
+  addOrderFailure,
+  addOrderStart,
+  addOrderSuccess,
+} from "./orderRedux"
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -123,3 +137,46 @@ export const addMember = async (product, dispatch) => {
     dispatch(addMemberFailure());
   }
 };
+
+
+//ORDER API
+
+export const getOrders = async (dispatch) => {
+  dispatch(getOrderStart());
+  try {
+    const res = await publicRequest.get("/orders");
+    dispatch(getOrderSuccess(res.data));
+  } catch (err) {
+    dispatch(getOrderFailure());
+  }
+};
+
+export const deleteOrder = async (id, dispatch) => {
+  dispatch(deleteOrderStart());
+  try {
+    const res = await userRequest.delete(`/orders/${id}`);
+    dispatch(deleteOrderSuccess(id));
+  } catch (err) {
+    dispatch(deleteOrderFailure());
+  }
+};
+
+export const updateOrder = async (id, product, dispatch) => {
+  dispatch(updateOrderStart());
+  try {
+    // update
+    dispatch(updateOrderSuccess({ id, product }));
+  } catch (err) {
+    dispatch(updateOrderFailure());
+  }
+};
+export const addOrder = async (product, dispatch) => {
+  dispatch(addOrderStart());
+  try {
+    const res = await userRequest.post(`/orders`, product);
+    dispatch(addOrderSuccess(res.data));
+  } catch (err) {
+    dispatch(addOrderFailure());
+  }
+};
+
