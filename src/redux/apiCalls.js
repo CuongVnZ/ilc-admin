@@ -144,7 +144,7 @@ export const addMember = async (product, dispatch) => {
 export const getOrders = async (dispatch) => {
   dispatch(getOrderStart());
   try {
-    const res = await publicRequest.get("/orders");
+    const res = await userRequest.get("/orders");
     dispatch(getOrderSuccess(res.data));
   } catch (err) {
     dispatch(getOrderFailure());

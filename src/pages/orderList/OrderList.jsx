@@ -20,20 +20,7 @@ export default function OrderList() {
     };
 
     const columns = [
-        { field: "_id", headerName: "ID", width: 220 },
-        {
-        field: "order",
-        headerName: "Order",
-        width: 200,
-        renderCell: (params) => {
-            return (
-            <div className="productListItem">
-                <img className="productListImg" src={params.row.img} alt="" />
-                {params.row.title}
-            </div>
-            );
-        },
-        },
+        { field: "_id", headerName: "Order ID", width: 220 },
         { field: "createdAt", headerName: "Date", width: 100 },
         { field: "userId", headerName: "User ID", width: 100 },
         {

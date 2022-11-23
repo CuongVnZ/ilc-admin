@@ -53,7 +53,7 @@ export default function Sidebar() {
                         Products
                     </li>
                     </Link>
-                    <Link to={"/users"} className="link">
+                    <Link to={"/orders"} className="link">
                     <li className="sidebarListItem">
                         <AttachMoney className="sidebarIcon"/>
                         Orders
