@@ -11,7 +11,7 @@ export default function WidgetSm() {
       const getUsers = async () => {
         try {
           const res = await userRequest.get("users"); //"users/?new=true"
-          setUsers(res.data);
+          setUsers(res.data.slice(0,5));
         } catch {}
       };
       getUsers();

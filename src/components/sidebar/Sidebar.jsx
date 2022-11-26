@@ -1,6 +1,5 @@
 import "./sidebar.css";
 import {
-  LineStyle,
   Timeline,
   TrendingUp,
   PermIdentity,
@@ -12,6 +11,7 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
+  Home,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,7 @@ export default function Sidebar() {
                 <ul className="sidebarList">
                     <Link to={"/"} className="link">
                         <li className="sidebarListItem active">
-                            <LineStyle className="sidebarIcon"/>
+                            <Home className="sidebarIcon"/>
                             Home
                         </li>
                     </Link>
