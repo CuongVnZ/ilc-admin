@@ -45,10 +45,13 @@ export const memberSlice = createSlice({
       state.error = false;
     },
     updateMemberSuccess: (state, action) => {
+      var member = action.payload.member
+      var _id = action.payload.id
       state.isFetching = false;
-      state.members[
-        state.members.findIndex((item) => item._id === action.payload.id)
-      ] = action.payload.member;
+      var index = state.members.findIndex((item) => item._id === _id)
+      for (const property in member) {
+        state.members[index][property] = member[property];
+      }
     },
     updateMemberFailure: (state) => {
       state.isFetching = false;

@@ -47,9 +47,9 @@ export default function UserList() {
             width: 160,
         },
         {
-            field: 'point',
+            field: 'points',
             headerName: 'Points',
-            width: 160,
+            width: 80,
         },
         {
             field: 'action',

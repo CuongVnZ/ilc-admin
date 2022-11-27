@@ -90,7 +90,7 @@ export default function NewProduct() {
             <input
                 name="title"
                 type="text"
-                placeholder="Apple Airpods"
+                placeholder="Coffee ABC"
                 onChange={handleChange}
             />
             </div>
@@ -108,7 +108,7 @@ export default function NewProduct() {
             <input
                 name="price"
                 type="number"
-                placeholder="100"
+                placeholder="1.5"
                 onChange={handleChange}
             />
             </div>
@@ -127,8 +127,8 @@ export default function NewProduct() {
             <div className="addProductItem">
                 <label>Stock</label>
                 <select name="inStock" onChange={handleChange}>
-                    <option value="true">Yes</option>
                     <option value="false">No</option>
+                    <option value="true">Yes</option>
                 </select>
             </div>
             <button onClick={handleClick} className="addProductButton">

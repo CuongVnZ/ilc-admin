@@ -5,6 +5,7 @@
 .newUserForm {
   display: flex;
   flex-wrap: wrap;
+  background-color: #fff;
 }
 
 .newUserItem {

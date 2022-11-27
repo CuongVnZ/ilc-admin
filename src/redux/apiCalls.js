@@ -119,19 +119,20 @@ export const deleteMember = async (id, dispatch) => {
   }
 };
 
-export const updateMember = async (id, product, dispatch) => {
+export const updateMember = async (id, member, dispatch) => {
   dispatch(updateMemberStart());
   try {
     // update
-    dispatch(updateMemberSuccess({ id, product }));
+    const res = await userRequest.put(`/users/` + id, member);
+    dispatch(updateMemberSuccess({ id, member }));
   } catch (err) {
     dispatch(updateMemberFailure());
   }
 };
-export const addMember = async (product, dispatch) => {
+export const addMember = async (member, dispatch) => {
   dispatch(addMemberStart());
   try {
-    const res = await userRequest.post(`/users`, product);
+    const res = await userRequest.post(`/users`, member);
     dispatch(addMemberSuccess(res.data));
   } catch (err) {
     dispatch(addMemberFailure());
