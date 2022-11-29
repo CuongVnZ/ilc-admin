@@ -62,7 +62,7 @@ export default function Sidebar() {
                     <Link to={"/users"} className="link">
                     <li className="sidebarListItem">
                         <BarChart className="sidebarIcon"/>
-                        Reports
+                        Reviews
                     </li>
                     </Link>
                 </ul>

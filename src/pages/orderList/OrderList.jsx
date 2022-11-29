@@ -20,13 +20,18 @@ export default function OrderList() {
     };
 
     const columns = [
-        { field: "_id", headerName: "Order ID", width: 220 },
-        { field: "createdAt", headerName: "Date", width: 100 },
+        { field: "_id", headerName: "Order ID", width: 100 },
         { field: "userId", headerName: "User ID", width: 100 },
+        { field: "createdAt", headerName: "Date", width: 150 },
         {
         field: "amount",
         headerName: "Price",
-        width: 160,
+        width: 80,
+        },
+        {
+        field: "status",
+        headerName: "Status",
+        width: 120,
         },
         {
         field: "action",

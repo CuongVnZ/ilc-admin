@@ -60,29 +60,33 @@ export default function User() {
             <div className="userShowBottom">
                 <span className="userShowTitle">Account Details</span>
                 <div className="userShowInfo">
-                <PermIdentity className="userShowIcon" />
-                <span className="userShowInfoTitle">{user.username}</span>
+                    <PermIdentity className="userShowIcon" />
+                    <span className="userShowInfoTitle">{user.username}</span>
                 </div>
                 <div className="userShowInfo">
-                <PermIdentity className="userShowIcon" />
-                <span className="userShowInfoTitle">Points: {user.points}</span>
+                    <PermIdentity className="userShowIcon" />
+                    <span className="userShowInfoTitle">Points: {user.points}</span>
                 </div>
                 <div className="userShowInfo">
-                <CalendarToday className="userShowIcon" />
-                <span className="userShowInfoTitle">19.02.2003</span>
+                    <CalendarToday className="userShowIcon" />
+                    <span className="userShowInfoTitle">19.02.2003</span>
+                </div>
+                <div className="userShowInfo">
+                    <CalendarToday className="userShowIcon" />
+                    <span className="userShowInfoTitle">{user.createdAt}</span>
                 </div>
                 <span className="userShowTitle">Contact Details</span>
                 <div className="userShowInfo">
-                <PhoneAndroid className="userShowIcon" />
-                <span className="userShowInfoTitle">{user.phone}</span>
+                    <PhoneAndroid className="userShowIcon" />
+                    <span className="userShowInfoTitle">{user.phone}</span>
                 </div>
                 <div className="userShowInfo">
-                <MailOutline className="userShowIcon" />
-                <span className="userShowInfoTitle">{user.email}</span>
+                    <MailOutline className="userShowIcon" />
+                    <span className="userShowInfoTitle">{user.email}</span>
                 </div>
                 <div className="userShowInfo">
-                <LocationSearching className="userShowIcon" />
-                <span className="userShowInfoTitle">Ho Chi Minh | VN</span>
+                    <LocationSearching className="userShowIcon" />
+                    <span className="userShowInfoTitle">Ho Chi Minh | VN</span>
                 </div>
             </div>
             </div>

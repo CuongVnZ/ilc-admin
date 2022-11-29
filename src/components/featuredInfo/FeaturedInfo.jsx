@@ -5,6 +5,8 @@ import { userRequest } from "../../requestMethods";
 
 export default function FeaturedInfo() {
     const [income, setIncome] = useState([]);
+    const [orders, setOrders] = useState([]);
+    const [users, setUsers] = useState([]);
     const [perc, setPerc] = useState(0);
   
     useEffect(() => {
@@ -18,6 +20,22 @@ export default function FeaturedInfo() {
         } catch {}
       };
       getIncome();
+      const getOrders = async () => {
+        try {
+          const res = await userRequest.get("orders");
+          var data = res.data;
+          setOrders(data);
+        } catch {}
+      };
+      getOrders();
+      const getUsers = async () => {
+        try {
+          const res = await userRequest.get("users");
+          var data = res.data;
+          setUsers(data);
+        } catch {}
+      };
+      getUsers();
     }, []);
 
     return (
@@ -38,19 +56,19 @@ export default function FeaturedInfo() {
                 <span className="featuredSub">Compared to last month</span>
             </div>
             <div className="featuredItem">
-                <span className="featuredTitle">Sales</span>
+                <span className="featuredTitle">Orders</span>
                 <div className="featuredMoneyContainer">
-                    <span className="featuredMoney">$4,415</span>
+                    <span className="featuredMoney">{orders.length}</span>
                     <span className="featuredMoneyRate">
-                        -1.4 <ArrowDownward className="featuredIcon negative"/>
+                        -14% <ArrowDownward className="featuredIcon negative"/>
                     </span>
                 </div>
                 <span className="featuredSub">Compared to last month</span>
             </div>
             <div className="featuredItem">
-                <span className="featuredTitle">Cost</span>
+                <span className="featuredTitle">Users</span>
                 <div className="featuredMoneyContainer">
-                    <span className="featuredMoney">$2,225</span>
+                    <span className="featuredMoney">3</span>
                     <span className="featuredMoneyRate">
                         +5.4 <ArrowUpward className="featuredIcon"/>
                     </span>

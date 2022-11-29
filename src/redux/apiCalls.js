@@ -162,11 +162,13 @@ export const deleteOrder = async (id, dispatch) => {
   }
 };
 
-export const updateOrder = async (id, product, dispatch) => {
+export const updateOrder = async (id, order, dispatch) => {
   dispatch(updateOrderStart());
   try {
-    // update
-    dispatch(updateOrderSuccess({ id, product }));
+    const res = await userRequest.put(`/orders/` + id, order);
+    var _id = res.data.documentId
+    console.log({_id, order})
+    dispatch(updateOrderSuccess({ _id, order }));
   } catch (err) {
     dispatch(updateOrderFailure());
   }
