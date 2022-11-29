@@ -10,6 +10,7 @@ import { userRequest } from "../../requestMethods";
 export default function Home() {
 
   const [userStats, setUserStats] = useState([]);
+  const [income, setIncome] = useState([]);
 
   const MONTHS = useMemo(
     () => [
@@ -30,6 +31,18 @@ export default function Home() {
   );
 
   useEffect(() => {
+    const getIncome = async () => {
+      try {
+        const res = await userRequest.get("/orders/income");
+        res.data.map((item) =>
+          setIncome((prev) => [
+            { name: MONTHS[item._id], "Income": item.total },
+            ...prev,
+          ])
+        );
+      } catch {}
+    };
+    getIncome();
     const getStats = async () => {
       try {
         const res = await userRequest.get("/users/stats");
@@ -47,6 +60,12 @@ export default function Home() {
   return (
     <div className="home">
         <FeaturedInfo />
+        <Chart 
+          data={income} 
+          title="Income Analytics" 
+          grid 
+          dataKey="Income"
+        />
         <Chart 
           data={userStats} 
           title="User Analytics" 
