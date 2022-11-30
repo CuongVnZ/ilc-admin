@@ -129,12 +129,16 @@ export default function Product() {
                         <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/>
                         <textarea rows="4" cols="50">{product.desc}</textarea>
                         <br></br>
+
+                        <label>Product Category</label>
+                        <input name="category" type="text" placeholder={product.category} onChange={handleChange}/>
+                        <br></br>
                         
-                        <label>Product pice</label>
+                        <label>Product Pice</label>
                         <input name="price" type="text" placeholder={product.price} onChange={handleChange}/>
                         <br></br>
 
-                        <label>Product size</label>
+                        <label>Product Size</label>
                         <input name="size" type="text" placeholder={product.size} onChange={handleArray}/>
                         <br></br>
                         
