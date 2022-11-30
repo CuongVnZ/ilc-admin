@@ -81,7 +81,9 @@ export default function Product() {
                         <label>Order status</label>
                         <input name="status" type="text" placeholder={order.status} onChange={handleChange}/>
                         <br></br>
-
+                        <label>Created date</label>
+                        <input name="createdAt" type="text" placeholder={order.createdAt} onChange={handleChange}/>
+                        <br></br>
                     </div>
                 </div>
                 <div className="productFormBottom">

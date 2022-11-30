@@ -7,7 +7,7 @@ export default function Topbar() {
     <div className="topbar">
         <div className="topbarWrapper">
             <div className="topLeft">
-                <span className="logo">Dreamy Coffee admin panel</span>
+                <span className="logo">Dreamy Coffee</span>
             </div>
             <div className="topRight">
                 <div className="topbarIconContainer">
@@ -21,7 +21,14 @@ export default function Topbar() {
                 <div className="topbarIconContainer">
                     <Settings />
                 </div>
-                <img src="https://avatars.githubusercontent.com/u/14831133?v=4" alt="" className="topAvatar" />
+                <div className="account">
+                    <img src="https://avatars.githubusercontent.com/u/14831133?v=4" alt="" className="topAvatar" />
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
