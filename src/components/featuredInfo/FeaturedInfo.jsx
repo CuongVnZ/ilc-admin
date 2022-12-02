@@ -15,7 +15,6 @@ export default function FeaturedInfo() {
           const res = await userRequest.get("orders/income");
           var data = res.data;
           setIncome(data);
-          console.log(data)
           setPerc((data[0].total * 100) / data[1].total - 100);
         } catch {}
       };

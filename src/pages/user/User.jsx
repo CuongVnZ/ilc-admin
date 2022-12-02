@@ -145,6 +145,16 @@ export default function User() {
                     />
                 </div>
                 <div className="userUpdateItem">
+                    <label>Created Date</label>
+                    <input
+                    type="text"
+                    placeholder={user.createdAt}
+                    className="userUpdateInput"
+                    name = "createdAt"
+                    onChange={handleChange}
+                    />
+                </div>
+                <div className="userUpdateItem">
                     <label>Address</label>
                     <input
                     type="text"

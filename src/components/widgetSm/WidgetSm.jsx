@@ -3,6 +3,7 @@ import { Visibility } from "@mui/icons-material"
 import { useState } from "react"
 import { useEffect } from "react"
 import { userRequest } from "../../requestMethods"
+import { Link } from "react-router-dom"
 
 export default function WidgetSm() {
     const [ users, setUsers ] = useState([])
@@ -32,10 +33,12 @@ export default function WidgetSm() {
                   <span className="widgetSmUsername">{user.username}</span>
                   <span className="widgetSmUsertitle">{user.email}</span>
                 </div>
-                <button className="widgetSmButton">
-                  <Visibility className="widgetSmIcon"/>
-                  Diplay
-                </button>
+                <Link to={"/user/" + user._id} className="styledLink">
+                  <button className="widgetSmButton">
+                    <Visibility className="widgetSmIcon"/>
+                    Diplay
+                  </button>
+                </Link>
               </li>
               )
             )

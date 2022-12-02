@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../../requestMethods";
 import "./widgetLg.css";
 import TimeAgo from 'react-timeago'
+import { Link } from "react-router-dom";
 
 export default function WidgetLg() {
   const [orders, setOrders] = useState([]);
@@ -39,7 +40,7 @@ export default function WidgetLg() {
             <td className="widgetLgDate"><TimeAgo date={order.createdAt} /></td>
             <td className="widgetLgAmount">${order.amount}</td>
             <td className="widgetLgStatus">
-              <Button type={order.status} />
+              <Link to={"/order/" + order._id}><Button type={order.status} /></Link>
             </td>
           </tr>
         ))}

@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./order.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
@@ -27,11 +27,12 @@ export default function Product() {
         return { ...prev, [e.target.name]: e.target.value };
       });
     };
-    const handleArray = (e) => {
-      setInputs((prev) => {
-        return { ...prev, [e.target.name]: e.target.value.split(",") };
-      });
-    };
+    
+    // const handleArray = (e) => {
+    //   setInputs((prev) => {
+    //     return { ...prev, [e.target.name]: e.target.value.split(",") };
+    //   });
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
