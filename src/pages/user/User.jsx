@@ -86,7 +86,7 @@ export default function User() {
                 </div>
                 <div className="userShowInfo">
                     <LocationSearching className="userShowIcon" />
-                    <span className="userShowInfoTitle">Ho Chi Minh | VN</span>
+                    <span className="userShowInfoTitle">{user.address}</span>
                 </div>
             </div>
             </div>
@@ -115,6 +115,16 @@ export default function User() {
                     />
                 </div>
                 <div className="userUpdateItem">
+                    <label>Points</label>
+                    <input
+                    type="text"
+                    placeholder={user.points}
+                    className="userUpdateInput"
+                    name = "points"
+                    onChange={handleChange}
+                    />
+                </div>
+                <div className="userUpdateItem">
                     <label>Email</label>
                     <input
                     type="text"
@@ -138,10 +148,10 @@ export default function User() {
                     <label>Address</label>
                     <input
                     type="text"
-                    placeholder="Ho Chi Minh | VN"
+                    placeholder={user.address}
                     className="userUpdateInput" 
-                    // name = "address"
-                    // onChange={handleChange}
+                    name = "address"
+                    onChange={handleChange}
                     />
                 </div>
                 </div>
