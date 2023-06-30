@@ -63,7 +63,7 @@ export default function ProductList() {
     ];
   
     return (
-        <div className="productList">
+        <div className="wrapper">
             <div className="topPart">
                 <Link to="/newproduct" className="createBtn">
                     <button className="productAddButton">Create</button>

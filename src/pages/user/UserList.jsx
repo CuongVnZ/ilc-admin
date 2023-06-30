@@ -73,7 +73,7 @@ export default function UserList() {
     ];
       
     return (
-        <div className="userList">
+        <div className="wrapper">
             <DataGrid
                 rows={members}
                 columns={columns}

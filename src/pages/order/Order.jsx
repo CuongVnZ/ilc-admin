@@ -41,7 +41,7 @@ export default function Product() {
     }
     
     return (
-        <div className="product">
+        <div className="wrapper">
             <div className="productTitleContainer">
                 <h1 className="productTitle">Order</h1>
             </div>

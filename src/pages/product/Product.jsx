@@ -81,7 +81,7 @@ export default function Product() {
     }
     
     return (
-        <div className="product">
+        <div className="wrapper">
             <div className="productTitleContainer">
                 <h1 className="productTitle">Product</h1>
                 <a href={"http://ilc-client.vercel.app/product/" + product.id}>

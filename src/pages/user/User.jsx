@@ -37,7 +37,7 @@ export default function User() {
     }
 
     return (
-        <div className="user">
+        <div className="wrapper">
         <div className="userTitleContainer">
             <h1 className="userTitle">Edit User</h1>
             <Link to="/newUser">

@@ -4,6 +4,13 @@
     background: #f2edf3;
 }
 
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    margin: 15px 15px;
+}
+
 .link{
     text-decoration: none;
     color: inherit;
