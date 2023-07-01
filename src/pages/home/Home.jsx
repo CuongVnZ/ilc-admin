@@ -58,7 +58,7 @@ export default function Home() {
   }, [MONTHS]);
 
   return (
-    <div className="home">
+    <div className="wrapper">
         <FeaturedInfo />
         <Chart 
           data={income} 
