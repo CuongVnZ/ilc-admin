@@ -1,7 +1,13 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./product.css";
 import Chart from "../../components/chart/Chart"
-import {productData} from "../../dummyData"
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../../firebase";
 import { Publish } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
@@ -10,11 +16,10 @@ import { updateProduct } from "../../redux/apiCalls";
 
 export default function Product() {
     const location = useLocation();
-    const productId = location.pathname.split("/")[2];
     const [pStats, setPStats] = useState([]);
   
     const product = useSelector((state) =>
-      state.product.products.find((product) => product._id === productId)
+      state.product.products.find((product) => product._id === location.pathname.split("/")[2])
     );
   
     const MONTHS = useMemo(
@@ -38,7 +43,7 @@ export default function Product() {
     useEffect(() => {
       const getStats = async () => {
         try {
-          const res = await userRequest.get("orders/income?pid=" + productId);
+          const res = await userRequest.get("orders/income?pid=" + product.pid);
           const list = res.data.sort((a,b)=>{
               return a._id - b._id
           })
@@ -53,7 +58,7 @@ export default function Product() {
         }
       };
       getStats();
-    }, [productId, MONTHS]);
+    }, [product, MONTHS]);
 
 
     const [inputs, setInputs] = useState({});
@@ -75,11 +80,55 @@ export default function Product() {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+      e.preventDefault();
+        
+      if(file) {
+        const fileName = new Date().getTime() + file.name;
+        const storage = getStorage(app);
+        const storageRef = ref(storage, fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+    
+        // Register three observers:
+        // 1. 'state_changed' observer, called any time the state changes
+        // 2. Error observer, called on failure
+        // 3. Completion observer, called on successful completion
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            // Observe state change events such as progress, pause, and resume
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+            switch (snapshot.state) {
+              case "paused":
+                console.log("Upload is paused");
+                break;
+              case "running":
+                console.log("Upload is running");
+                break;
+              default:
+            }
+          },
+          (error) => {
+            // Handle unsuccessful uploads
+          },
+          () => {
+            // Handle successful uploads on complete
+            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              setInputs({ ...inputs, img: downloadURL});
+              updateProduct(product._id, inputs, dispatch);
+              navigate("/products")
+            });
+          }
+        );
+      } else {
         updateProduct(product._id, inputs, dispatch);
         navigate("/products")
+      }
     }
-    
+
     return (
         <div className="wrapper">
             <div className="productTitleContainer">
@@ -127,7 +176,7 @@ export default function Product() {
 
                         <label>Product Description</label>
                         <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/>
-                        <textarea rows="4" cols="50">{product.desc}</textarea>
+                        <textarea rows="4" cols="50" defaultValue={product.desc}/>
                         <br></br>
 
                         <label>Product Category</label>
@@ -154,7 +203,7 @@ export default function Product() {
                             <label htmlFor="file">
                                 <Publish/>
                             </label>
-                            <input type="file" id="file" style={{display:"none"}} />
+                            <input type="file" id="file" style={{display:"none"}} onChange={(e) => setFile(e.target.files[0])}/>
                         </div>
                     </div>
                 </div>

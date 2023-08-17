@@ -21,11 +21,19 @@ export default function OrderList() {
 
     const columns = [
         { field: "_id", headerName: "Order ID", width: 100 },
-        { field: "userId", headerName: "User ID", width: 100 },
-        { field: "createdAt", headerName: "Date", width: 150 },
+        { field: "customerId", headerName: "User ID", width: 100 },
+        { field: "createdAt", headerName: "Date", width: 200,
+            renderCell: (params) => {
+                return (
+                    <>
+                        {new Date(params.row.createdAt).toLocaleString()}
+                    </>
+                )
+            },
+        },
         {
-            field: "amount",
-            headerName: "Price",
+            field: "total",
+            headerName: "Total",
             width: 80,
         },
         {
@@ -41,12 +49,9 @@ export default function OrderList() {
                 return (
                 <>
                     <Link to={"/order/" + params.row._id}>
-                    <button className="productListEdit">Edit</button>
+                        <button className="productListEdit">Edit</button>
                     </Link>
-                    <DeleteOutline
-                    className="productListDelete"
-                    onClick={() => handleDelete(params.row._id)}
-                    />
+                    <DeleteOutline className="productListDelete" onClick={() => handleDelete(params.row._id)} />
                 </>
                 );
             },

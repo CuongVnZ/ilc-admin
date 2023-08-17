@@ -13,7 +13,7 @@ export default function Product() {
     );
 
     const customer = useSelector((state) =>
-      state.member.members.find((member) => member._id === order.userId)
+      state.member.members.find((member) => member._id === order.customerId)
     );
 
     const [inputs, setInputs] = useState({});
@@ -42,56 +42,56 @@ export default function Product() {
     
     return (
         <div className="wrapper">
-            <div className="productTitleContainer">
-                <h1 className="productTitle">Order</h1>
-            </div>
-            <div className="productTop">
-                <div className="productTopRight">
-                    <div className="productInfoBottom">
-                        <div className="productInfoItem">
-                            <span className="productInfoKey">Order ID:</span>
-                            <span className="productInfoValue">{order._id}</span>
-                        </div>
-                        <div className="productInfoItem">
-                            <span className="productInfoKey">Customer ID:</span>
-                            <span className="productInfoValue">{order.userId}</span>
-                        </div>
-                        <div className="productInfoItem">
-                            <span className="productInfoKey">Customer full name:</span>
-                            <span className="productInfoValue">{customer && customer.fullname}</span>
-                        </div>
-                          <div className="productInfoItem">
-                              <span className="productInfoKey">Created at:</span>
-                              <span className="productInfoValue">{order.createdAt}</span>
-                          </div>
-                          <div className="productInfoItem">
-                              <span className="productInfoKey">Address:</span>
-                              <span className="productInfoValue">{order.address.line1}, {order.address.city}</span>
-                          </div>
-                        <div className="productInfoItem">
-                            <span className="productInfoKey">Status:</span>
-                            <span className="productInfoValue">{order.status}</span>
-                        </div>
-                    </div>
+          <div className="productTitleContainer">
+            <h1 className="productTitle">Order</h1>
+          </div>
+          <div className="productTop">
+            <div className="productTopRight">
+              <div className="productInfoBottom">
+                <div className="productInfoItem">
+                  <span className="productInfoKey">Order ID:</span>
+                  <span className="productInfoValue">{order._id}</span>
                 </div>
-            </div>
-            <div className="productBottom">
-                <form className="productForm" onSubmit = {handleSubmit}>
-                <div className="productFormTop">
-                    <div className="productFormTopLeft">
-                        <label>Order status</label>
-                        <input name="status" type="text" placeholder={order.status} onChange={handleChange}/>
-                        <br></br>
-                        <label>Created date</label>
-                        <input name="createdAt" type="text" placeholder={order.createdAt} onChange={handleChange}/>
-                        <br></br>
-                    </div>
+                <div className="productInfoItem">
+                  <span className="productInfoKey">Customer ID:</span>
+                  <span className="productInfoValue">{order.customerId}</span>
                 </div>
-                <div className="productFormBottom">
-                    <button type = 'submit' className="productButton">Update</button>
+                <div className="productInfoItem">
+                  <span className="productInfoKey">Customer full name:</span>
+                  <span className="productInfoValue">{customer && customer.name}</span>
                 </div>
-                </form>
+                  <div className="productInfoItem">
+                    <span className="productInfoKey">Created at:</span>
+                    <span className="productInfoValue">{new Date(order.createdAt).toLocaleString() }</span>
+                  </div>
+                  <div className="productInfoItem">
+                    <span className="productInfoKey">Address:</span>
+                    <span className="productInfoValue">{order.shippingAddress}</span>
+                  </div>
+                <div className="productInfoItem">
+                    <span className="productInfoKey">Status:</span>
+                    <span className="productInfoValue">{order.status}</span>
+                </div>
+              </div>
             </div>
+          </div>
+          <div className="productBottom">
+              <form className="productForm" onSubmit = {handleSubmit}>
+              <div className="productFormTop">
+                <div className="productFormTopLeft">
+                  <label>Order status</label>
+                  <input name="status" type="text" placeholder={order.status} onChange={handleChange}/>
+                  <br></br>
+                  <label>Created date</label>
+                  <input name="createdAt" type="text" placeholder={order.createdAt} onChange={handleChange}/>
+                  <br></br>
+                </div>
+              </div>
+              <div className="productFormBottom">
+                <button type = 'submit' className="productButton">Update</button>
+              </div>
+              </form>
+          </div>
         </div>
     );
 }

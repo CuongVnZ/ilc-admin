@@ -21,44 +21,44 @@ export default function ProductList() {
     };
 
     const columns = [
-        { field: "id", headerName: "ID", width: 220 },
+        { field: "pid", headerName: "ID", width: 220 },
         {
-        field: "product",
-        headerName: "Product",
-        width: 200,
-        renderCell: (params) => {
-            return (
-            <div className="productListItem">
-                <img className="productListImg" src={params.row.img} alt="" />
-                {params.row.title}
-            </div>
-            );
-        },
+            field: "product",
+            headerName: "Product",
+            width: 200,
+            renderCell: (params) => {
+                return (
+                <div className="productListItem">
+                    <img className="productListImg" src={params.row.img} alt="" />
+                    {params.row.title}
+                </div>
+                );
+            },
         },
         { field: "category", headerName: "Category", width: 100 },
         { field: "inStock", headerName: "Stock", width: 100 },
         {
-        field: "price",
-        headerName: "Price",
-        width: 160,
+            field: "price",
+            headerName: "Price",
+            width: 160,
         },
         {
-        field: "action",
-        headerName: "Action",
-        width: 150,
-        renderCell: (params) => {
-            return (
-            <>
-                <Link to={"/product/" + params.row._id}>
-                <button className="productListEdit">Edit</button>
-                </Link>
-                <DeleteOutline
-                className="productListDelete"
-                onClick={() => handleDelete(params.row._id)}
-                />
-            </>
-            );
-        },
+            field: "action",
+            headerName: "Action",
+            width: 150,
+            renderCell: (params) => {
+                return (
+                <>
+                    <Link to={"/product/" + params.row._id}>
+                    <button className="productListEdit">Edit</button>
+                    </Link>
+                    <DeleteOutline
+                    className="productListDelete"
+                    onClick={() => handleDelete(params.row._id)}
+                    />
+                </>
+                );
+            },
         },
     ];
   

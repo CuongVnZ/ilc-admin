@@ -15,7 +15,7 @@ export default function Topbar() {
         <div className="topbar">
             <div className="topbarWrapper">
                 <div className="topLeft">
-                    <span className="logo">Dreamy Coffee</span>
+                    <span className="logo">Admin Dashboard</span>
                 </div>
                 <div className="topRight">
                     <div className="topbarIconContainer">
