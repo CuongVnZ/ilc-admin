@@ -1,7 +1,6 @@
 import "./userList.css"
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from "@mui/icons-material";
-import { userRows } from '../../dummyData'
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -64,7 +63,6 @@ export default function UserList() {
                     <DeleteOutline 
                         className="userListDelete" 
                         onClick={()=>handleDelete(params.row._id)}
-                        
                     />
                     </>
                 )

@@ -24,32 +24,32 @@ export default function OrderList() {
         { field: "userId", headerName: "User ID", width: 100 },
         { field: "createdAt", headerName: "Date", width: 150 },
         {
-        field: "amount",
-        headerName: "Price",
-        width: 80,
+            field: "amount",
+            headerName: "Price",
+            width: 80,
         },
         {
-        field: "status",
-        headerName: "Status",
-        width: 120,
+            field: "status",
+            headerName: "Status",
+            width: 120,
         },
         {
-        field: "action",
-        headerName: "Action",
-        width: 150,
-        renderCell: (params) => {
-            return (
-            <>
-                <Link to={"/order/" + params.row._id}>
-                <button className="productListEdit">Edit</button>
-                </Link>
-                <DeleteOutline
-                className="productListDelete"
-                onClick={() => handleDelete(params.row._id)}
-                />
-            </>
-            );
-        },
+            field: "action",
+            headerName: "Action",
+            width: 150,
+            renderCell: (params) => {
+                return (
+                <>
+                    <Link to={"/order/" + params.row._id}>
+                    <button className="productListEdit">Edit</button>
+                    </Link>
+                    <DeleteOutline
+                    className="productListDelete"
+                    onClick={() => handleDelete(params.row._id)}
+                    />
+                </>
+                );
+            },
         },
     ];
   

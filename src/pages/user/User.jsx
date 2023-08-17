@@ -96,84 +96,38 @@ export default function User() {
                 <div className="userUpdateLeft">
                 <div className="userUpdateItem">
                     <label>Username</label>
-                    <input
-                    type="text"
-                    placeholder={user.username}
-                    className="userUpdateInput"
-                    name = "username"
-                    onChange={handleChange}
-                    />
+                    <input type="text" placeholder={user.username} className="userUpdateInput" name = "username" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Full Name</label>
-                    <input
-                    type="text"
-                    placeholder={user.fullname}
-                    className="userUpdateInput"
-                    name = "fullname"
-                    onChange={handleChange}
-                    />
+                    <input type="text" placeholder={user.fullname} className="userUpdateInput" name = "fullname" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Points</label>
-                    <input
-                    type="text"
-                    placeholder={user.points}
-                    className="userUpdateInput"
-                    name = "points"
-                    onChange={handleChange}
-                    />
+                    <input type="text" placeholder={user.points} className="userUpdateInput" name = "points" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Email</label>
-                    <input
-                    type="text"
-                    placeholder={user.email}
-                    className="userUpdateInput"
-                    name = "email"
-                    onChange={handleChange}
-                    />
+                    <input type="text" placeholder={user.email} className="userUpdateInput" name = "email" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Phone</label>
-                    <input
-                    type="text"
-                    placeholder={user.phone}
-                    className="userUpdateInput"
-                    name = "phone"
-                    onChange={handleChange}
-                    />
+                    <input type="text" placeholder={user.phone} className="userUpdateInput" name = "phone" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Created Date</label>
-                    <input
-                    type="text"
-                    placeholder={user.createdAt}
-                    className="userUpdateInput"
-                    name = "createdAt"
-                    onChange={handleChange}
-                    />
+                    <input type="text" placeholder={user.createdAt} className="userUpdateInput" name = "createdAt" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Address</label>
-                    <input
-                    type="text"
-                    placeholder={user.address}
-                    className="userUpdateInput" 
-                    name = "address"
-                    onChange={handleChange}
-                    />
+                    <input type="text" placeholder={user.address} className="userUpdateInput" name = "address" onChange={handleChange} />
                 </div>
                 </div>
                 <div className="userUpdateRight">
                 <div className="userUpdateUpload">
-                    <img
-                    className="userUpdateImg"
-                    src={user.img}
-                    alt=""
-                    />
+                    <img className="userUpdateImg" src={user.img} alt="" />
                     <label htmlFor="file">
-                    <Publish className="userUpdateIcon" />
+                        <Publish className="userUpdateIcon" />
                     </label>
                     <input type="file" id="file" style={{ display: "none" }} />
                 </div>

@@ -98,7 +98,6 @@ export const addProduct = async (product, dispatch) => {
 };
 
 //MEMBER API
-
 export const getMembers = async (dispatch) => {
   dispatch(getMemberStart());
   try {
@@ -141,7 +140,6 @@ export const addMember = async (member, dispatch) => {
 
 
 //ORDER API
-
 export const getOrders = async (dispatch) => {
   dispatch(getOrderStart());
   try {

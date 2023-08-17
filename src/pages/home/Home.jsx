@@ -1,6 +1,5 @@
 import Chart from "../../components/chart/Chart";
 import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
-import { userData } from '../../dummyData'
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import "./home.css";
@@ -43,6 +42,7 @@ export default function Home() {
       } catch {}
     };
     getIncome();
+    
     const getStats = async () => {
       try {
         const res = await userRequest.get("/users/stats");
