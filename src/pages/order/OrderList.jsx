@@ -20,8 +20,8 @@ export default function OrderList() {
     };
 
     const columns = [
-        { field: "_id", headerName: "Order ID", width: 100 },
-        { field: "customerId", headerName: "User ID", width: 100 },
+        { field: "_id", headerName: "Order ID", width: 200 },
+        { field: "customerId", headerName: "Customer ID", width: 200 },
         { field: "createdAt", headerName: "Date", width: 200,
             renderCell: (params) => {
                 return (

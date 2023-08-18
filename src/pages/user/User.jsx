@@ -3,6 +3,8 @@ import {
   LocationSearching,
   MailOutline,
   PermIdentity,
+  EmojiEvents,
+  Cake,
   PhoneAndroid,
   Publish,
 } from "@mui/icons-material";
@@ -64,16 +66,16 @@ export default function User() {
                     <span className="userShowInfoTitle">{user.username}</span>
                 </div>
                 <div className="userShowInfo">
-                    <PermIdentity className="userShowIcon" />
-                    <span className="userShowInfoTitle">Points: {user.points}</span>
+                    <EmojiEvents className="userShowIcon" />
+                    <span className="userShowInfoTitle">{user.points || 0} points</span>
                 </div>
                 <div className="userShowInfo">
-                    <CalendarToday className="userShowIcon" />
+                    <Cake className="userShowIcon" />
                     <span className="userShowInfoTitle">19.02.2003</span>
                 </div>
                 <div className="userShowInfo">
                     <CalendarToday className="userShowIcon" />
-                    <span className="userShowInfoTitle">{user.createdAt}</span>
+                    <span className="userShowInfoTitle">{new Date(user.createdAt).toLocaleString()}</span>
                 </div>
                 <span className="userShowTitle">Contact Details</span>
                 <div className="userShowInfo">
@@ -86,7 +88,7 @@ export default function User() {
                 </div>
                 <div className="userShowInfo">
                     <LocationSearching className="userShowIcon" />
-                    <span className="userShowInfoTitle">{user.address}</span>
+                    <span className="userShowInfoTitle">{user.shippingAddress}</span>
                 </div>
             </div>
             </div>
@@ -99,12 +101,12 @@ export default function User() {
                     <input type="text" placeholder={user.username} className="userUpdateInput" name = "username" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
-                    <label>Full Name</label>
-                    <input type="text" placeholder={user.fullname} className="userUpdateInput" name = "fullname" onChange={handleChange} />
+                    <label>Name</label>
+                    <input type="text" placeholder={user.name} className="userUpdateInput" name = "fullname" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Points</label>
-                    <input type="text" placeholder={user.points} className="userUpdateInput" name = "points" onChange={handleChange} />
+                    <input type="number" placeholder={user.points} className="userUpdateInput" name = "points" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Email</label>
@@ -116,11 +118,11 @@ export default function User() {
                 </div>
                 <div className="userUpdateItem">
                     <label>Created Date</label>
-                    <input type="text" placeholder={user.createdAt} className="userUpdateInput" name = "createdAt" onChange={handleChange} />
+                    <input type="text" placeholder={new Date(user.createdAt).toLocaleString()} className="userUpdateInput" name = "createdAt" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
-                    <label>Address</label>
-                    <input type="text" placeholder={user.address} className="userUpdateInput" name = "address" onChange={handleChange} />
+                    <label>Shipping Address</label>
+                    <input type="text" placeholder={user.shippingAddress} className="userUpdateInput" name = "address" onChange={handleChange} />
                 </div>
                 </div>
                 <div className="userUpdateRight">

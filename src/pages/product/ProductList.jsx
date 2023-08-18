@@ -21,11 +21,11 @@ export default function ProductList() {
     };
 
     const columns = [
-        { field: "pid", headerName: "ID", width: 220 },
+        { field: "pid", headerName: "ID", width: 250 },
         {
             field: "product",
             headerName: "Product",
-            width: 200,
+            width: 300,
             renderCell: (params) => {
                 return (
                 <div className="productListItem">
@@ -36,11 +36,11 @@ export default function ProductList() {
             },
         },
         { field: "category", headerName: "Category", width: 100 },
-        { field: "inStock", headerName: "Stock", width: 100 },
+        { field: "inStock", headerName: "Available", width: 100 },
         {
             field: "price",
             headerName: "Price",
-            width: 160,
+            width: 100,
         },
         {
             field: "action",
