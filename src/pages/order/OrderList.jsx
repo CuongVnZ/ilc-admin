@@ -14,7 +14,7 @@ export default function OrderList() {
     useEffect(() => {
         getOrders(dispatch);
     }, [dispatch]);
-  
+
     const handleDelete = (id) => {
         deleteOrder(id, dispatch);
     };

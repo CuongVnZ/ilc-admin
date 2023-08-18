@@ -48,7 +48,7 @@ export default function User() {
             <div className="userShow">
             <div className="userShowTop">
                 <img
-                src={user.img}
+                src={user.avatar || "https://i.pravatar.cc/300"}
                 alt=""
                 className="userShowImg"
                 />
@@ -125,7 +125,7 @@ export default function User() {
                 </div>
                 <div className="userUpdateRight">
                 <div className="userUpdateUpload">
-                    <img className="userUpdateImg" src={user.img} alt="" />
+                    <img className="userUpdateImg" src={user.avatar || "https://i.pravatar.cc/300"} alt="" />
                     <label htmlFor="file">
                         <Publish className="userUpdateIcon" />
                     </label>

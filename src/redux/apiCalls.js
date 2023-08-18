@@ -75,14 +75,14 @@ export const deleteProduct = async (id, dispatch) => {
   }
 };
 
-export const updateProduct = async (id, product, dispatch) => {
+export const updateProduct = async (id, data, dispatch) => {
   dispatch(updateProductStart());
   try {
-    // update
-    const res = await userRequest.put(`/products/` + id, product);
-    var _id = res.data.documentId
-    console.log({_id, product})
-    dispatch(updateProductSuccess({_id, product}));
+    console.log(data);
+    const res = await userRequest.put(`/products/` + id, data);
+    var updatedProduct = res.data
+    console.log(updatedProduct)
+    dispatch(updateProductSuccess(updatedProduct));
   } catch (err) {
     dispatch(updateProductFailure());
   }
@@ -144,6 +144,7 @@ export const getOrders = async (dispatch) => {
   dispatch(getOrderStart());
   try {
     const res = await userRequest.get("/orders");
+    console.log(res.data)
     dispatch(getOrderSuccess(res.data));
   } catch (err) {
     dispatch(getOrderFailure());

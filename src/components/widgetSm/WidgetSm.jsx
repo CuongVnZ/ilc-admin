@@ -27,7 +27,7 @@ export default function WidgetSm() {
               <li className="widgetSmListItem" key={user._id}>
                 <img src={
                     user.avatar ||
-                    "https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"
+                    "https://i.pravatar.cc/300"
                   } alt="" className="widgetSmImg"/>
                 <div className="widgetSmUser">
                   <span className="widgetSmUsername">{user.username}</span>
@@ -36,7 +36,7 @@ export default function WidgetSm() {
                 <Link to={"/user/" + user._id} className="styledLink">
                   <button className="widgetSmButton">
                     <Visibility className="widgetSmIcon"/>
-                    Diplay
+                    Detail
                   </button>
                 </Link>
               </li>

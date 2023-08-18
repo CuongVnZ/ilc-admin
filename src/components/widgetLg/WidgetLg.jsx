@@ -35,10 +35,10 @@ export default function WidgetLg() {
         {orders.map((order) => (
           <tr className="widgetLgTr" key={order._id}>
             <td className="widgetLgUser">
-              <span className="widgetLgName">{order.userId}</span>
+              <span className="widgetLgName">{order.customerId}</span>
             </td>
             <td className="widgetLgDate"><TimeAgo date={order.createdAt} /></td>
-            <td className="widgetLgAmount">${order.amount}</td>
+            <td className="widgetLgAmount">${order.total}</td>
             <td className="widgetLgStatus">
               <Link to={"/order/" + order._id}><Button type={order.status} /></Link>
             </td>

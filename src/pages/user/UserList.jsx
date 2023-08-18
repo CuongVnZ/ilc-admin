@@ -27,15 +27,11 @@ export default function UserList() {
     //     setData(data.filter((item)=>item.id !== id))
     // }
     const columns = [
-        { field: '_id', headerName: 'ID', width: 200 },
-        { field: 'username', headerName: 'Username', width: 160, renderCell: (params) => {
+        { field: '_id', headerName: 'ID', width: 240 },
+        { field: 'username', headerName: 'Username', width: 120, renderCell: (params) => {
             return (
                 <div className="userListUser">
-                    <img src={
-                        params.row.avatar ||
-                        "https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"
-                    } alt="" className="widgetSmImg"/>
-                    {params.row.username}
+                    <p>{params.row.username}</p>
                 </div>
             )
         } },

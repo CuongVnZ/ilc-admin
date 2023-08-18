@@ -65,8 +65,6 @@ export default function Product() {
     const [file, setFile] = useState(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-  
-    console.log(inputs)
 
     const handleChange = (e) => {
       setInputs((prev) => {
@@ -117,8 +115,9 @@ export default function Product() {
             // Handle successful uploads on complete
             // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-              setInputs({ ...inputs, img: downloadURL});
-              updateProduct(product._id, inputs, dispatch);
+              var data = { ...inputs, img: downloadURL};
+              console.log(inputs)
+              updateProduct(product._id, data, dispatch);
               navigate("/products")
             });
           }
@@ -161,7 +160,7 @@ export default function Product() {
                         </div>
                         <div className="productInfoItem">
                             <span className="productInfoKey">In stock:</span>
-                            <span className="productInfoValue">{product.inStock}</span>
+                            <span className="productInfoValue">{String(product.inStock)}</span>
                         </div>
                     </div>
                 </div>

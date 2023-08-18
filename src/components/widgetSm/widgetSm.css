@@ -17,6 +17,7 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 10px;
 }
 
 .widgetSmList{
@@ -28,11 +29,12 @@
 .widgetSmListItem{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin: 20px 0px;
 }
 
 .widgetSmUser{
+    flex: 1;
     display: flex;
     flex-direction: column;
 }

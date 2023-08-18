@@ -58,7 +58,7 @@ export default function Product() {
                 </div>
                 <div className="productInfoItem">
                   <span className="productInfoKey">Customer full name:</span>
-                  <span className="productInfoValue">{customer && customer.name}</span>
+                  <span className="productInfoValue">{customer && customer.fullname}</span>
                 </div>
                   <div className="productInfoItem">
                     <span className="productInfoKey">Created at:</span>
@@ -83,7 +83,7 @@ export default function Product() {
                   <input name="status" type="text" placeholder={order.status} onChange={handleChange}/>
                   <br></br>
                   <label>Created date</label>
-                  <input name="createdAt" type="text" placeholder={order.createdAt} onChange={handleChange}/>
+                  <input name="createdAt" type="text" placeholder={new Date(order.createdAt).toLocaleString()} onChange={handleChange}/>
                   <br></br>
                 </div>
               </div>
