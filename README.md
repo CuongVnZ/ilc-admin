@@ -1,10 +1,10 @@
 # Frontend using Vite + ReactJS
 
 
-### Run the API in development mode
+### Install and run the ReactJS frontend
 ```javascript
-yarn install // install
-yarn dev // start postgres in docker and push migrations
+yarn install
+yarn start
 ```
 
 ![alt text](/media/1.png)

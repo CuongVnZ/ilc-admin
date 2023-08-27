@@ -102,7 +102,7 @@ export default function User() {
                 </div>
                 <div className="userUpdateItem">
                     <label>Name</label>
-                    <input type="text" placeholder={user.name} className="userUpdateInput" name = "fullname" onChange={handleChange} />
+                    <input type="text" placeholder={user.fullname} className="userUpdateInput" name = "fullname" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Points</label>
