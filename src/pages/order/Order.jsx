@@ -58,7 +58,7 @@ export default function Product() {
                 </div>
                 <div className="productInfoItem">
                   <span className="productInfoKey">Customer name:</span>
-                  <span className="productInfoValue">{customer && customer.name}</span>
+                  <span className="productInfoValue">{customer && customer.fullname}</span>
                 </div>
                   <div className="productInfoItem">
                     <span className="productInfoKey">Created at:</span>
