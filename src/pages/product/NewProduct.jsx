@@ -113,15 +113,15 @@ export default function NewProduct() {
             />
             </div>
             <div className="addProductItem">
-                <label>tag id</label>
-                <input name="id" type="text" placeholder="cold-brew-sua-tuoi" onChange={handleChange} />
+                <label>Product ID</label>
+                <input name="pid" type="text" placeholder="cold-brew-sua-tuoi" onChange={handleChange} />
             </div>
             <div className="addProductItem">
                 <label>Category</label>
                 <input name="category" type="text" placeholder="coffee" onChange={handleChange} />
             </div>
             <div className="addProductItem">
-                <label>Size</label>
+                <label>Option</label>
                 <input name="size" type="text" placeholder="S,M,L" onChange={handleArray} />
             </div>
             <div className="addProductItem">
