@@ -65,7 +65,7 @@ export default function Product() {
                     <span className="productInfoValue">{new Date(order.createdAt).toLocaleString() }</span>
                   </div>
                   <div className="productInfoItem">
-                    <span className="productInfoKey">Address:</span>
+                    <span className="productInfoKey">Shipping Address:</span>
                     <span className="productInfoValue">{order.shippingAddress}</span>
                   </div>
                 <div className="productInfoItem">
@@ -82,8 +82,8 @@ export default function Product() {
                   <label>Order status</label>
                   <input name="status" type="text" placeholder={order.status} onChange={handleChange}/>
                   <br></br>
-                  <label>Created date</label>
-                  <input name="createdAt" type="text" placeholder={new Date(order.createdAt).toLocaleString()} onChange={handleChange}/>
+                  <label>Shipping Address</label>
+                  <input name="shippingAddress" type="text" placeholder={order.shippingAddress} onChange={handleChange}/>
                   <br></br>
                 </div>
               </div>

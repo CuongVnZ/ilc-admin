@@ -186,8 +186,12 @@ export default function Product() {
                         <input name="price" type="text" placeholder={product.price} onChange={handleChange}/>
                         <br></br>
 
-                        <label>Product Size</label>
-                        <input name="size" type="text" placeholder={product.size} onChange={handleArray}/>
+                        <label>Product Types</label>
+                        <input name="types" type="text" placeholder={product.types} onChange={handleArray}/>
+                        <br></br>
+
+                        <label>Product Options</label>
+                        <input name="options" type="text" placeholder={product.options} onChange={handleArray}/>
                         <br></br>
                         
                         <label>In Stock</label>
