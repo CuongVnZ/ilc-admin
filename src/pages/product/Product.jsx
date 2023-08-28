@@ -185,6 +185,11 @@ export default function Product() {
                         <input name="pid" type="text" placeholder={product.pid} onChange={handleChange}/>
                         <br></br>
 
+                        <label>Product Description</label>
+                        <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/>
+                        <textarea rows="4" cols="50" defaultValue={product.desc}/>
+                        <br></br>
+
                         <label>Product Category</label>
                         <input name="category" type="text" placeholder={product.category} onChange={handleChange}/>
                         <br></br>
