@@ -187,7 +187,7 @@ export default function Product() {
 
                         <label>Product Description</label>
                         {/* <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/> */}
-                        <textarea rows="4" cols="50" placeholder={product.desc} defaultValue={product.desc} onChange={handleChange}/>
+                        <textarea rows="4" cols="50" name="desc" placeholder={product.desc} defaultValue={product.desc} onChange={handleChange}/>
                         <br></br>
 
                         <label>Product Category</label>
