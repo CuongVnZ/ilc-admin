@@ -178,32 +178,32 @@ export default function Product() {
                 <div className="productFormTop">
                     <div className="productFormTopLeft">
                         <label>Product Name</label>
-                        <input name="title" type="text" placeholder={product.title} onChange={handleChange}/>
+                        <input name="title" type="text" placeholder={product.title} defaultValue={product.title} onChange={handleChange}/>
                         <br></br>
 
                         <label>Product id</label>
-                        <input name="pid" type="text" placeholder={product.pid} onChange={handleChange}/>
+                        <input name="pid" type="text" placeholder={product.pid} defaultValue={product.pid} onChange={handleChange}/>
                         <br></br>
 
                         <label>Product Description</label>
-                        <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/>
-                        <textarea rows="4" cols="50" defaultValue={product.desc}/>
+                        {/* <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/> */}
+                        <textarea rows="4" cols="50" placeholder={product.desc} defaultValue={product.desc} onChange={handleChange}/>
                         <br></br>
 
                         <label>Product Category</label>
-                        <input name="category" type="text" placeholder={product.category} onChange={handleChange}/>
+                        <input name="category" type="text" placeholder={product.category} defaultValue={product.category} onChange={handleChange}/>
                         <br></br>
                         
                         <label>Product Pice</label>
-                        <input name="price" type="text" placeholder={product.price} onChange={handleChange}/>
+                        <input name="price" type="text" placeholder={product.price} defaultValue={product.price} onChange={handleChange}/>
                         <br></br>
 
                         <label>Product Types</label>
-                        <input name="types" type="text" placeholder={product.types} onChange={handleArray}/>
+                        <input name="types" type="text" placeholder={product.types} defaultValue={product.types} onChange={handleArray}/>
                         <br></br>
 
                         <label>Product Options</label>
-                        <input name="options" type="text" placeholder={product.options} onChange={handleArray}/>
+                        <input name="options" type="text" placeholder={product.options} defaultValue={product.options} onChange={handleArray}/>
                         <br></br>
                         
                         <label>In Stock</label>
