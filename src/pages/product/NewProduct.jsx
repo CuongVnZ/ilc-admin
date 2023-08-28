@@ -121,8 +121,12 @@ export default function NewProduct() {
                 <input name="category" type="text" placeholder="coffee" onChange={handleChange} />
             </div>
             <div className="addProductItem">
-                <label>Option</label>
-                <input name="size" type="text" placeholder="S,M,L" onChange={handleArray} />
+                <label>Types</label>
+                <input name="types" type="text" placeholder="S,M,L" onChange={handleArray} />
+            </div>
+            <div className="addProductItem">
+                <label>Options</label>
+                <input name="options" type="text" placeholder="option1,option2" onChange={handleArray} />
             </div>
             <div className="addProductItem">
                 <label>Stock</label>
