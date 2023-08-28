@@ -147,8 +147,16 @@ export default function Product() {
                     </div>
                     <div className="productInfoBottom">
                         <div className="productInfoItem">
-                            <span className="productInfoKey">Database ID:</span>
+                            <span className="productInfoKey">Database id:</span>
                             <span className="productInfoValue">{product._id}</span>
+                        </div>
+                        <div className="productInfoItem">
+                            <span className="productInfoKey">Product id:</span>
+                            <span className="productInfoValue">{product.pid}</span>
+                        </div>
+                        <div className="productInfoItem">
+                            <span className="productInfoKey">Description:</span>
+                            <span className="productInfoValue">{product.desc}</span>
                         </div>
                         <div className="productInfoItem">
                             <span className="productInfoKey">Sales:</span>
@@ -173,9 +181,8 @@ export default function Product() {
                         <input name="title" type="text" placeholder={product.title} onChange={handleChange}/>
                         <br></br>
 
-                        <label>Product Description</label>
-                        <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/>
-                        <textarea rows="4" cols="50" defaultValue={product.desc}/>
+                        <label>Product id</label>
+                        <input name="pid" type="text" placeholder={product.pid} onChange={handleChange}/>
                         <br></br>
 
                         <label>Product Category</label>
