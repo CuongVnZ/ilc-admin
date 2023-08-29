@@ -22,9 +22,28 @@ export default function NewProduct() {
         return { ...prev, [e.target.name]: e.target.value };
       });
     };
+    
     const handleArray = (e) => {
+      let options = e.target.value.split(",");
+      options.forEach ((option, index) => {
+        let tmp = option.split(":")
+        if( tmp.length < 1) {
+          options[index] = [option, 0]
+        } else {
+          options[index] = [tmp[0], tmp[1]]
+        }
+      })
+
+      var obj = [];
+      options.forEach ((option, index) => {
+        obj.push({
+          name: option[0],
+          price: option[1]
+        })
+      })
+
       setInputs((prev) => {
-        return { ...prev, [e.target.name]: e.target.value.split(",") };
+        return { ...prev, [e.target.name]: obj};
       });
     };
   
@@ -122,11 +141,11 @@ export default function NewProduct() {
             </div>
             <div className="addProductItem">
                 <label>Types</label>
-                <input name="types" type="text" placeholder="S,M,L" onChange={handleArray} />
+                <input name="types" type="text" placeholder="S:0,M:10,L:20" onChange={handleArray} />
             </div>
             <div className="addProductItem">
                 <label>Options</label>
-                <input name="options" type="text" placeholder="option1,option2" onChange={handleArray} />
+                <input name="options" type="text" placeholder="option1:5,option2:5" onChange={handleArray} />
             </div>
             <div className="addProductItem">
                 <label>Stock</label>

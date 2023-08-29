@@ -70,12 +70,41 @@ export default function Product() {
       setInputs((prev) => {
         return { ...prev, [e.target.name]: e.target.value };
       });
+      console.log(inputs)
     };
+
     const handleArray = (e) => {
+      let options = e.target.value.split(",");
+      options.forEach ((option, index) => {
+        let tmp = option.split(":")
+        if( tmp.length < 1) {
+          options[index] = [option, 0]
+        } else {
+          options[index] = [tmp[0], tmp[1]]
+        }
+      })
+
+      var obj = [];
+      options.forEach ((option, index) => {
+        obj.push({
+          name: option[0],
+          price: option[1]
+        })
+      })
+
       setInputs((prev) => {
-        return { ...prev, [e.target.name]: e.target.value.split(",") };
+        return { ...prev, [e.target.name]: obj};
       });
     };
+
+    const optionToString = (options) => {
+      var str = "";
+      options.forEach ((option, index) => {
+        str += option.name + ":" + option.price
+        if(index < options.length - 1) str += ","
+      })
+      return str;
+    }
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -199,11 +228,11 @@ export default function Product() {
                         <br></br>
 
                         <label>Product Types</label>
-                        <input name="types" type="text" placeholder={product.types} defaultValue={product.types} onChange={handleArray}/>
+                        <input name="types" type="text" placeholder={product.types} defaultValue={optionToString(product.types)} onChange={handleArray}/>
                         <br></br>
 
                         <label>Product Options</label>
-                        <input name="options" type="text" placeholder={product.options} defaultValue={product.options} onChange={handleArray}/>
+                        <input name="options" type="text" placeholder={product.options} defaultValue={optionToString(product.options)} onChange={handleArray}/>
                         <br></br>
                         
                         <label>In Stock</label>
