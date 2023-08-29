@@ -58,6 +58,9 @@ export default function Product() {
         }
       };
       getStats();
+
+      setTypes(product.types);
+      setOptions(product.options);
     }, [product, MONTHS]);
 
 
@@ -72,39 +75,6 @@ export default function Product() {
       });
       console.log(inputs)
     };
-
-    const handleArray = (e) => {
-      let options = e.target.value.split(",");
-      options.forEach ((option, index) => {
-        let tmp = option.split(":")
-        if( tmp.length < 1) {
-          options[index] = [option, 0]
-        } else {
-          options[index] = [tmp[0], tmp[1]]
-        }
-      })
-
-      var obj = [];
-      options.forEach ((option, index) => {
-        obj.push({
-          name: option[0],
-          price: option[1]
-        })
-      })
-
-      setInputs((prev) => {
-        return { ...prev, [e.target.name]: obj};
-      });
-    };
-
-    const optionToString = (options) => {
-      var str = "";
-      options.forEach ((option, index) => {
-        str += option.name + ":" + option.price
-        if(index < options.length - 1) str += ","
-      })
-      return str;
-    }
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -144,25 +114,99 @@ export default function Product() {
             // Handle successful uploads on complete
             // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-              var data = { ...inputs, img: downloadURL};
-              console.log(inputs)
+              var data = { 
+                ...inputs, 
+                img: downloadURL,
+                types: types,
+                options: options
+              };
               updateProduct(product._id, data, dispatch);
               navigate("/products")
             });
           }
         );
       } else {
-        updateProduct(product._id, inputs, dispatch);
+        var data = { 
+          ...inputs, 
+          types: types,
+          options: options
+        };
+        updateProduct(product._id, data, dispatch);
         navigate("/products")
       }
+    }
+
+    const [options, setOptions] = useState([]);
+    const addOption = () => {
+      const newFields = [...options];
+      newFields.push({
+        name: "Type",
+        mode: "add",
+        price: 1.1
+      });
+      setOptions(newFields); 
+    };
+    const removeOption = (index) => {
+      const newFields = [...options];
+      newFields.splice(index, 1);
+      setOptions(newFields);
+    };
+    const handleChangeOption = (index) => (e) => {
+      var name = e.target.name;
+      var newFields = [...types];
+
+      var current = {...newFields[index]};
+      if(!current.mode) current.mode = "add";
+      else if (!current.price) current.price = 1.1;
+      else if (!current.name) current.name = "Type";
+      current[name] = e.target.value;
+
+      newFields[index] = current;
+      setOptions(newFields);
+
+      console.log(options)
+    }
+
+    const [types, setTypes] = useState([]);
+    const addType = () => {
+      
+      const newFields = [...types];
+      newFields.push({
+        name: "Type",
+        mode: "add",
+        price: 1.1
+      });
+      setTypes(newFields);
+
+      console.log(types)
+    };
+    const removeType = (index) => {
+      const newFields = [...types];
+      newFields.splice(index, 1);
+      setTypes(newFields);
+    };
+    const handleChangeType = (index) => (e) => {
+      var name = e.target.name;
+      var newFields = [...types];
+
+      var current = {...newFields[index]};
+      if(!current.mode) current.mode = "add";
+      else if (!current.price) current.price = 1.1;
+      else if (!current.name) current.name = "Type";
+      current[name] = e.target.value;
+
+      newFields[index] = current;
+      setTypes(newFields);
+
+      console.log(types)
     }
 
     return (
         <div className="wrapper">
             <div className="productTitleContainer">
                 <h1 className="productTitle">Product</h1>
-                <a href={"http://ilc-client.vercel.app/product/" + product.id}>
-                <button className="productViewButton">View</button>
+                <a href={"http://ilc-client.vercel.app/product/" + product._id}>
+                  <button className="productViewButton">View</button>
                 </a>
             </div>
             <div className="productTop">
@@ -203,7 +247,7 @@ export default function Product() {
                 </div>
             </div>
             <div className="productBottom">
-                <form className="productForm" onSubmit = {handleSubmit}>
+                <form className="productForm" onSubmit={handleSubmit}>
                 <div className="productFormTop">
                     <div className="productFormTopLeft">
                         <label>Product Name</label>
@@ -215,7 +259,6 @@ export default function Product() {
                         <br></br>
 
                         <label>Product Description</label>
-                        {/* <input name="desc" type="text" placeholder={product.desc} onChange={handleChange}/> */}
                         <textarea rows="4" cols="50" name="desc" placeholder={product.desc} defaultValue={product.desc} onChange={handleChange}/>
                         <br></br>
 
@@ -228,12 +271,35 @@ export default function Product() {
                         <br></br>
 
                         <label>Product Types</label>
-                        <input name="types" type="text" placeholder={product.types} defaultValue={optionToString(product.types)} onChange={handleArray}/>
+                        <button type="button" onClick={addType}>Add Type</button>
+                        {types.map((field, index) => (
+                          <div key={index}>
+                            <input type="text" defaultValue={field.name} name='name' onChange={handleChangeType(index)} />
+                            <select name="mode" defaultValue={field.mode} onChange={handleChangeType(index)}>
+                              <option value="add">Add</option>
+                              <option value="multiply">Multiply</option>
+                            </select>
+                            <input type="number" defaultValue={field.price} name='price' onChange={handleChangeType(index)} />
+                            <button type="button" onClick={() => removeType(index)}>Remove</button>
+                          </div>
+                        ))}
                         <br></br>
 
                         <label>Product Options</label>
-                        <input name="options" type="text" placeholder={product.options} defaultValue={optionToString(product.options)} onChange={handleArray}/>
+                        <button type="button" onClick={addOption}>Add Option</button>
+                        {options.map((field, index) => (
+                          <div key={index}>
+                            <input type="text" defaultValue={field.name} name='name' onChange={handleChangeOption(index)} />
+                            <select name="mode" defaultValue={field.mode} onChange={handleChangeOption(index)}>
+                              <option value="add">Add</option>
+                              <option value="multiply">Multiply</option>
+                            </select>
+                            <input type="number" defaultValue={field.price} name='price' onChange={handleChangeOption(index)} />
+                            <button type="button" onClick={() => removeOption(index)}>Remove</button>
+                          </div>
+                        ))}
                         <br></br>
+
                         
                         <label>In Stock</label>
                         <select name="inStock" id="idStock" onChange={handleChange}>
@@ -252,7 +318,7 @@ export default function Product() {
                     </div>
                 </div>
                 <div className="productFormBottom">
-                    <button type = 'submit' className="productButton">Update</button>
+                    <button type="submit" className="productButton">Update</button>
                 </div>
                 </form>
             </div>

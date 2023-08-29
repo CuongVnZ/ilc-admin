@@ -139,14 +139,14 @@ export default function NewProduct() {
                 <label>Category</label>
                 <input name="category" type="text" placeholder="coffee" onChange={handleChange} />
             </div>
-            <div className="addProductItem">
+            {/* <div className="addProductItem">
                 <label>Types</label>
                 <input name="types" type="text" placeholder="S:0,M:10,L:20" onChange={handleArray} />
             </div>
             <div className="addProductItem">
                 <label>Options</label>
                 <input name="options" type="text" placeholder="option1:5,option2:5" onChange={handleArray} />
-            </div>
+            </div> */}
             <div className="addProductItem">
                 <label>Stock</label>
                 <select name="inStock" onChange={handleChange}>
