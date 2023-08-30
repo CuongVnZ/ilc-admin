@@ -98,31 +98,27 @@ export default function User() {
                 <div className="userUpdateLeft">
                 <div className="userUpdateItem">
                     <label>Username</label>
-                    <input type="text" placeholder={user.username} className="userUpdateInput" name = "username" onChange={handleChange} />
+                    <input type="text" defaultValue={user.username} className="userUpdateInput" name = "username" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Name</label>
-                    <input type="text" placeholder={user.fullname} className="userUpdateInput" name = "fullname" onChange={handleChange} />
+                    <input type="text" defaultValue={user.fullname} className="userUpdateInput" name = "fullname" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Points</label>
-                    <input type="number" placeholder={user.points} className="userUpdateInput" name = "points" onChange={handleChange} />
+                    <input type="number" defaultValue={user.points} className="userUpdateInput" name = "points" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Email</label>
-                    <input type="text" placeholder={user.email} className="userUpdateInput" name = "email" onChange={handleChange} />
+                    <input type="text" defaultValue={user.email} className="userUpdateInput" name = "email" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Phone</label>
-                    <input type="text" placeholder={user.phone} className="userUpdateInput" name = "phone" onChange={handleChange} />
-                </div>
-                <div className="userUpdateItem">
-                    <label>Created Date</label>
-                    <input type="text" placeholder={new Date(user.createdAt).toLocaleString()} className="userUpdateInput" name = "createdAt" onChange={handleChange} />
+                    <input type="text" defaultValue={user.phone} className="userUpdateInput" name = "phone" onChange={handleChange} />
                 </div>
                 <div className="userUpdateItem">
                     <label>Shipping Address</label>
-                    <input type="text" placeholder={user.shippingAddress} className="userUpdateInput" name = "address" onChange={handleChange} />
+                    <input type="text" defaultValue={user.shippingAddress} className="userUpdateInput" name = "address" onChange={handleChange} />
                 </div>
                 </div>
                 <div className="userUpdateRight">
