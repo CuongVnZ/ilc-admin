@@ -142,7 +142,7 @@ export default function Product() {
     };
     const handleChangeOption = (index) => (e) => {
       var name = e.target.name;
-      var newFields = [...types];
+      var newFields = [...options];
 
       var current = {...newFields[index]};
       if(!current.mode) current.mode = "add";
