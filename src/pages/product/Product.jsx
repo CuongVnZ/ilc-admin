@@ -279,7 +279,7 @@ export default function Product() {
                               <option value="add">Add</option>
                               <option value="multiply">Multiply</option>
                             </select>
-                            <input type="number" defaultValue={field.price} name='price' onChange={handleChangeType(index)} />
+                            <input type="text" defaultValue={field.price} name='price' onChange={handleChangeType(index)} />
                             <button type="button" onClick={() => removeType(index)}>Remove</button>
                           </div>
                         ))}
@@ -294,7 +294,7 @@ export default function Product() {
                               <option value="add">Add</option>
                               <option value="multiply">Multiply</option>
                             </select>
-                            <input type="number" defaultValue={field.price} name='price' onChange={handleChangeOption(index)} />
+                            <input type="text" defaultValue={field.price} name='price' onChange={handleChangeOption(index)} />
                             <button type="button" onClick={() => removeOption(index)}>Remove</button>
                           </div>
                         ))}
@@ -302,7 +302,7 @@ export default function Product() {
 
                         
                         <label>In Stock</label>
-                        <select name="inStock" id="idStock" onChange={handleChange}>
+                        <select name="inStock" onChange={handleChange}>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
